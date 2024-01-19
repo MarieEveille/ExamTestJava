@@ -1,6 +1,6 @@
-package main.java.com;
+package com;
 
-import java.util.Map;
+import java.util.*;
 
 public class GestionTache {
 
@@ -9,30 +9,39 @@ public class GestionTache {
     public GestionTache() {
     }
 
+    public Map<String, Tache> getTaches() {
+        return taches;
+    }
+
     public void ajouterTache(String key, String titre, String description) {
         Tache tache = new Tache(titre, description);
         taches.put(key, tache);
     }
 
-    public void completerTache(String titre) throws Exception {
-        if (taches.containsKey(titre)) {
-            taches.Etat = "Completée";
+    public void ajouterTacheDuree(String key, String titre, String description, int duree) {
+        Tache tache = new Tache(titre, description, duree);
+        taches.put(key, tache);
+    }
 
+    public void completerTache(String key) throws Exception {
+        if (taches.containsKey(key)) {
+            Tache tache = taches.get(key);
+            tache.setEtat("Completée");
         } else {
-            throw new Exception("La tache n'existe pas");
+            throw new IllegalArgumentException("La tache n'existe pas");
         }
 
     }
 
-    public boolean verifierTache(String titre) throws Exception {
-        if (taches.containsKey(titre)) {
-            if(taches.Etat == "Completée"){
-                return True;
+    public boolean verifierTache(String key) throws Exception {
+        if (taches.containsKey(key)) {
+            if(taches.get(key).getEtat().equals( "Completée")){
+                return true;
             }else{
-                return False;
+                return false;
             }
         } else {
-            throw new Exception("La tache n'existe pas");
+            throw new IllegalArgumentException("La tache n'existe pas");
         }
 
     }
