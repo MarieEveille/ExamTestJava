@@ -57,6 +57,6 @@ public class ProjetTest {
         projet.ajouterTacheProjetDuree("1","tache1", "tache1", 2);
         projet.ajouterTacheProjetDuree("2","tache2", "tache2", 5);
         projet.ajouterTacheProjetDuree("3","tache3", "tache3", -2);
-        assertEquals(7, projet.calculerDureeTotale(projet.getTaches()));
+        assertEquals(8, projet.calculerDureeTotale(projet.getTaches()));
     }
 }

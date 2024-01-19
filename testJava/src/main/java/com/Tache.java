@@ -16,8 +16,8 @@ public class Tache {
         Titre = titre;
         Description = description;
         Etat = "Non commencée";
-        if(duree < 0){
-            duree = 0;
+        if(duree <= 0){
+            Duree = 1;
         }
         else{
             Duree = duree;
